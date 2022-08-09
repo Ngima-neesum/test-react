@@ -1,9 +1,11 @@
 import { Typography } from "@mui/material";
 import React from "react";
-import { useGetProducts } from "../hooks/api/useProduct";
+import useProducts from "../hooks/components/useProducts";
+// import { useGetProducts } from "../hooks/api/useProduct";
 
 const Products = () => {
-  const { data } = useGetProducts();
+  // const { data } = useGetProducts();
+  const { products: data } = useProducts({});
   return (
     <div>
       <Typography variant="h4">Products</Typography>
@@ -19,7 +21,7 @@ const Products = () => {
           <Typography>Price: {product?.price}</Typography>
           <Typography>Stock: {product?.stock}</Typography>
           <Typography>
-            image url: {product?.images && product?.images[0].url}
+            image url: {product?.images && product?.images?.url}
           </Typography>
         </div>
       ))}
